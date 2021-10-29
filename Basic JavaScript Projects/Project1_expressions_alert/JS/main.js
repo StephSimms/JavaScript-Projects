@@ -1,5 +1,3 @@
-let carName1 = "Honda Odyssey";
-let carName2 = " Honda Civic";
-
-
-document.write(carName1)    
+var Lucky = prompt ('What is your name?');
+alert ("Hey, " + Lucky + "!");
+alert ("Can you sit Lucky?," + Lucky + "!");
