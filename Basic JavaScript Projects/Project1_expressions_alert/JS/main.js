@@ -1,3 +1,4 @@
-var Lucky = prompt ('What is your name?');
-alert ("Hey, " + Lucky + "!");
-alert ("Can you sit Lucky?," + Lucky + "!");
+
+let text = "We are the so-called \"Vikings\" from the north.";
+document.getElementById("demo").innerHTML = text;
+
