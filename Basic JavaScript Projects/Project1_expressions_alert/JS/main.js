@@ -1,5 +1,6 @@
+//this is an HTML event//
 
-document.write(3 + 3 );
+
 
 
 
