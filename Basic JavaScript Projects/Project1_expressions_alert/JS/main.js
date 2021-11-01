@@ -1,4 +1,6 @@
+var x= 5;
+var y= 6;
+var z = x + y;
 
-let text = "We are the so-called \"Vikings\" from the north.";
-document.getElementById("demo").innerHTML = text;
+document.write("The value of z is:" + z);
 
