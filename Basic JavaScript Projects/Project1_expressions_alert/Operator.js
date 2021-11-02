@@ -1,7 +1,6 @@
-//this is an Operator//
+//this the += Operator//
 
-let x = 25;
-let y = 22;
-let z = x + y;
+var x = 55;
+x += 5;
 
-document.getElementById("demo").innerHTML = z;
+document.getElementById("demo").innerHTML = x;
