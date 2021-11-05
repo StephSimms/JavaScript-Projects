@@ -48,3 +48,10 @@ function decrementFunction() {
 
 //this is math random to return a random number
     document.getElementById("mathrandom").innerHTML = Math.random();
+
+
+
+//create an object for a Challenge #5
+const car = {type:"Honda", model:"Odyssey", color:"silver"};
+    document.getElementById("object").innerHTML = "The car type is " + car.type;
+
