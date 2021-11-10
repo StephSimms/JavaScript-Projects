@@ -23,14 +23,14 @@ document.getElementById("function").innerHTML = myFunction(4,3);
 
 //this is Assignment #40
 function myFunction() {
-    document.getElementById("color").style.color = "red";
+    document.getElementById("color").style.color = "blue";
 }
 
-const d = new Date ();
+const d = new Date ("November 5, 2021 01:15:00");
     document.getElementById("hours").innerHTML=d.getHours();
 
 //Assignment #41
-if (new Date ().getHours() < 14)  {
+if (new Date ("November 2, 2021 Date").getHours() < 12) {
     document.getElementById("IF").innerHTML= "Hello There!";
 }
 
@@ -39,7 +39,7 @@ function myFunction() {
     document.getElementById("field2").value = document.getElementById("field1").value;
 }
 
-const hour = new Date().getHours();
+const hour = new Date("October 31, 2021").getHours();
     let greeting;
 
     if (hour <12) {
