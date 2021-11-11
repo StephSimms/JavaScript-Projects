@@ -72,8 +72,27 @@ let text4= "";
     }
     document.getElementById("continue").innerHTML = text4;
 
+//this is a while loop used within a function
+function count() {
+    var Digit ="";
+    var y= 10;
+    while (y < 109) {
+        Digit += "<br>" + y;
+        y++;
+    }
+    document.getElementById("Counting").innerHTML = Digit;
+}
 
-
+//this is a for loop within a function
+var Ingredients = ["Cheese", "Flour", "Sauce", "Pepperoni", "Bacon", "Ham"];
+var Content = "";
+var Y;
+function for_Loop() {
+    for (Y = 0; Y < Ingredients.length; Y++){
+    Content += Ingredients[Y] + "<br>";
+    }
+    document.getElementById("List_of_Ingredients").innerHTML = Content;
+}
 
 
     
