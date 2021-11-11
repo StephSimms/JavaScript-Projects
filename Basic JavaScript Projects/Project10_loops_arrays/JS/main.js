@@ -35,24 +35,45 @@ function constant_function() {
 }
 
 //this is Assignment #54
-var a = 15;
-document.write(a);
+var d = 15;
+document.write(d);
 {
-    let a = 10;
-    document.write("<br>" + a);
+    let d = 10;
+    document.write("<br>" + d);
 }
-document.write("<br>" + a);
-document.getElementById("let").innerHTML= a;
+document.write("<br>" + d);
+document.getElementById("let").innerHTML= d;
 
 //this is Assignment #55
 
 let car2 = {
-    make: "Dodge ",
-    model: "Viper ",
+    make: "Honda ",
+    model: "Pilot ",
     year: "2021 ",
-    color: "red ",
+    color: "blue ",
     description : function () {
         return "The car is a " + this.year + this.color + this.make + this.model;
         }    
 };
-    document.getElementById("Car_Object").innerHTML = car.description();
+    document.getElementById("Car_Object").innerHTML = car2.description();
+
+    //this is Challenge #15
+let text3 = "";
+    for (let i = 5; i < 20; i ++) {
+    if (i === 9) {break;}
+    text3 += "The number is " + i + "<br>"
+    }
+    document.getElementById("break").innerHTML = text3;
+
+let text4= "";
+    for (let c = 10; c < 30; c++) {
+        if (c === 13) {continue;}
+        text4 += "The number is " + c + "<br>";
+    }
+    document.getElementById("continue").innerHTML = text4;
+
+
+
+
+
+    
