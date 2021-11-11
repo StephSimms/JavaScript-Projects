@@ -27,7 +27,32 @@ const cars = ["Honda", "Acura", "Subaru"];
 //this is Assignment #53
 const car = {type:"Honda", model:"Odyssey", color:"silver"};
     car.owner = "Stephanie";
+    car.price = "$40,000";
+    car.color = "black";
 
-function myCar() {
-    document.getElementById("Constant").innerHTML = "Car owner is " + car.owner;
+function constant_function() {
+    document.getElementById("Constant").innerHTML = "Car color is " + car.color;
 }
+
+//this is Assignment #54
+var a = 15;
+document.write(a);
+{
+    let a = 10;
+    document.write("<br>" + a);
+}
+document.write("<br>" + a);
+document.getElementById("let").innerHTML= a;
+
+//this is Assignment #55
+
+let car2 = {
+    make: "Dodge ",
+    model: "Viper ",
+    year: "2021 ",
+    color: "red ",
+    description : function () {
+        return "The car is a " + this.year + this.color + this.make + this.model;
+        }    
+};
+    document.getElementById("Car_Object").innerHTML = car.description();
