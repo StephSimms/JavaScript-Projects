@@ -3,6 +3,7 @@ const Calculator = {
     //this is displays 0 on the screen
     Display_Value: '0',
     //this will hold the first operand for any expressions, we set it to null for now
+    First_Operand: null,
     //this checks whether or not the second operand has been input
     Wait_Second_Operand: false,
     //this will hold the operator, we set it to null for now
@@ -11,7 +12,7 @@ const Calculator = {
 
 //this modifies values each time a button is clicked
 function Input_Digit(digit) {
-    const ( Display_Value, Wait_Second_Operand) = Calculator;
+    const { Display_Value, Wait_Second_Operand } = Calculator;
     //We are checking to see if Wait_Second_Operand is true and set
     //Display_Value to the key that was clicked.
     if (Wait_Second_Operand === true) {
@@ -41,7 +42,7 @@ function Handle_Operator(Next_Operator) {
     //when an operator key is pressed, we convert the current number
     //displayed on the screen to a number and then store the result in 
     //Calculator.First_Operand if it doesn't alrady exist
-    const Value_of_Inputer = parseFloat(Display_Value);
+    const Value_of_Input = parseFloat(Display_Value);
     //checks if an operator already exists and if Wait_Second_Operand is true,
     //then updates the operator and exits from the function
     if (operator && Calculator.Wait_Second_Operand) {
@@ -57,7 +58,7 @@ function Handle_Operator(Next_Operator) {
         //operator is executed
         let result = Perform_Calculation[operator] (Value_Now, Value_of_Input);
         //here we add a fixed amount of numbers after the decimal
-        result = Number(result) .toFixed(9)
+        result = Number(result).toFixed(9)
         //this will remove any trailing 0's
         result = (result * 1).toString()
         Calculator.Display_Value = parseFloat(result);
@@ -71,11 +72,11 @@ const Perform_Calculation = {
     '/': (First_Operand, Second_Operand) => First_Operand / Second_Operand,
     '*': (First_Operand, Second_Operand) => First_Operand * Second_Operand,
     '+': (First_Operand, Second_Operand) => First_Operand + Second_Operand,
-    '-': (First_Operand, Second_Operand) => First_Operand + Second_Operand,
-    '=': (First_Operand, Second_Operand) => First_Operand + Second_Operand, 
+    '-': (First_Operand, Second_Operand) => First_Operand - Second_Operand,
+    '=': (First_Operand, Second_Operand) => Second_Operand 
 };
 
-fucntion Calculator_Reset() {
+function Calculator_Reset() {
     Calculator.Display_Value = 'O';
     Calculator.First_Operand = null;
     Calculator.Wait_Second_Operand = false;
@@ -93,13 +94,13 @@ const keys = document.querySelector('.calculator-keys');
 keys.addEventListener('click', (event) => {
     //the target variable is an object that represents the element
     //that was clicked
-    const {target} = event;
+    const { target } = event;
     //if the element that was clicked on is not a button, exit the function
     if (!target.matches('button')) {
         return;
     }
 
-    if (target.clssList.contains('operator')) {
+    if (target.classList.contains('operator')) {
         Handle_Operator(target.value);
         Update_Display();
         return;
@@ -110,6 +111,7 @@ keys.addEventListener('click', (event) => {
         Update_Display();
         return;
     }
+
     //ensures that AC clears the numbers from the Calculator 
     if (target.classList.contains('all-clear')) {
         Calculator_Reset();
