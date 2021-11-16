@@ -1,10 +1,10 @@
 //This variable keeps track of who's turn it is.
 let activePlayer = 'X';
 //This array stores an array of moves. We use this to determine win conditions.
-let selectSquares = [];
+let selectedSquares = [];
 
 //This function is for placing an x or o in a square.
-function placeXOorO(squareNumber) {
+function placeXOrO(squareNumber) {
     //This condition ensures a square hasn't been selected already.
     //The .some() method is used to check each element of selectedSquare array to 
     //see if it contains the square number clicked on.
@@ -19,6 +19,7 @@ function placeXOorO(squareNumber) {
         } else {
             //If activePlayer is equal to 'O', the o.png is placed in HTML.
             select.style.backgroundImage = 'url("images/o.png")';
+        }
         //squareNumber and activePlayer are concatenated together and added to array.
         selectedSquares.push(squareNumber + activePlayer);
         //This calls a function to check for any win conditions.
@@ -35,7 +36,7 @@ function placeXOorO(squareNumber) {
         //This function plays placement sound.
         audio ('./media/place.mp3');
         //This condition checks to see if it is computers turn.
-        if(activePlayer === '0') {
+        if(activePlayer === 'O') {
             //This function disables clicking for computer choice.
             disableClick();
             //This function waits 1 second before placing the image
@@ -57,9 +58,9 @@ function placeXOorO(squareNumber) {
             //A random number between 0 and 8 is selected
             pickASquare = String(Math.floor(Math.random() * 9));
             //If the random number evaluates returns true, the square hasn't been selected yet.
-            if (placeXOorO(pickASquare)) {
+            if (placeXOrO(pickASquare)) {
                 //This line calls the function.
-                placeXOorO(pickASquare);
+                placeXOrO(pickASquare);
                 //This changes or boolean and ends the loop.
                 success = true;
             };
@@ -68,13 +69,13 @@ function placeXOorO(squareNumber) {
 }
     
         
-}
+
 
 //This function parses the selectedSquares array to search for win conditions.
 //drawWinLine function is called to draw line if condition is met.
 function checkWinConditions() {
-    // X 0, 1, 2 condition.
-    if  (arrayIncludes('OX', '1X', '2X')) { drawWinLine(50, 100, 558, 100); }
+    // X O, 1, 2 condition.
+    if      (arrayIncludes('OX', '1X', '2X')) { drawWinLine(50, 100, 558, 100); }
     // X 3, 4, 5 condition.
     else if (arrayIncludes('3X', '4X', '5X')) { drawWinLine(50, 304, 558, 304); }
     // X 6, 7, 8 condition.
@@ -88,7 +89,7 @@ function checkWinConditions() {
     // X 6, 4, 2 condition.
     else if (arrayIncludes('6X', '4X', '2X')) { drawWinLine(100, 508, 510, 90); }
     // X 0, 4, 8 conditon.
-    else if (arrayIncludes( 'OX', '4X', '8X')) { drawWinLine(100, 100, 520, 520); }
+    else if (arrayIncludes('OX', '4X', '8X')) { drawWinLine(100, 100, 520, 520); }
     // O 0, 1, 2 conditon.
     else if (arrayIncludes('0O', '1O', '2O')) {drawWinLine(50, 100, 558, 100); }
     // O 3, 4, 5 condition.
@@ -102,9 +103,9 @@ function checkWinConditions() {
     // O 2, 5, 8 condition.
     else if (arrayIncludes('2O', '5O', '8O')) {drawWinLine(508, 50, 508, 558); }
     // O 6, 4, 2 condition.
-    else if (arrayIncludes('6O', '4O', '2O')) {drawWinLineO(100, 508, 510, 90) ; }
+    else if (arrayIncludes('6O', '4O', '2O')) {drawWinLineO(100, 508, 510, 90); }
     //O 0, 4, 8 condition.
-    else if (arrayIncludes('0O', '4O', '8O')) {drawWinLine(100, 100, 520, 520); }
+   else if (arrayIncludes('0O', '4O', '8O')) {drawWinLine(100, 100, 520, 520); }
     //This condition checks for tie. If none of the above conditions register
     //and 9 squares are selected, the code executes.
     else if (selectedSquares.length >= 9) {
@@ -119,10 +120,10 @@ function checkWinConditions() {
         //The next 3 variables will be used to check for 3 in a row.
         const a = selectedSquares.includes(squareA);
         const b = selectedSquares.includes(squareB);
-        const c= selectedSquares.includes(squareC);
+        const c = selectedSquares.includes(squareC);
         //If the 3 variables we pass are all included in our array true is 
         //returned and our else if condition executes the drawWinLine functiion.
-        if (a === ture && b === true && c === true) {return true; }
+        if (a === true && b === true && c === true) { return true; }
         }
     }
     //This function makes our body element temporarily unclickable.
@@ -149,13 +150,15 @@ function checkWinConditions() {
         //This lines indicates where the start of a lines x axis is.
         let x1 = coordX1,
         //This lines indicates where the start of a lines y axis is.
-        y1 = coordY1,
+            y1 = coordY1,
         //This lines indicates where the end of a lines x axis is.
+            x2 = coordX2,
+        //This line indicates where the end of a lines x axis is.
         y2 = coordY2,
         //This variable stores temporary x axis data we update in our animation loop.
-        x = x1,
+            x = x1,
         //This variable stores temporary y axis data we update in our animation loop.
-        y = y1;
+            y = y1;
 
     //This function interacts with the canvas
     function animateLineDrawing() {
@@ -167,6 +170,8 @@ function checkWinConditions() {
         c.beginPath();
         //This method moves us to a starting point for our line.
         c.moveTo(x1, y1);
+        //This method indicates the end point in our line.
+        c.lineTo(x, y);
         //This method set the width of our line.
         c.lineWidth = 10;
         //This method sets the color of our line.
@@ -196,7 +201,7 @@ function checkWinConditions() {
         //This line starts our animation loop.
         const animationLoop = requestAnimationFrame(clear);
         //This line clears our canvas.
-        c.clearRect(o, 0, 608, 608);
+        c.clearRect(0, 0, 608, 608);
         //This line stops our animation loop.
         cancelAnimationFrame(animationLoop);
     }
