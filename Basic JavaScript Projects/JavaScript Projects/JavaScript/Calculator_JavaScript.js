@@ -58,9 +58,10 @@ function Handle_Operator(Next_Operator) {
         //operator is executed
         let result = Perform_Calculation[operator] (Value_Now, Value_of_Input);
         //here we add a fixed amount of numbers after the decimal
-        result = Number(result).toFixed(9)
-        //this will remove any trailing 0's
-        result = (result * 1).toString()
+        
+
+
+
         Calculator.Display_Value = parseFloat(result);
         Calculator.First_Operand = parseFloat(result);
     }
@@ -75,9 +76,8 @@ const Perform_Calculation = {
     '-': (First_Operand, Second_Operand) => First_Operand - Second_Operand,
     '=': (First_Operand, Second_Operand) => Second_Operand 
 };
-
 function Calculator_Reset() {
-    Calculator.Display_Value = 'O';
+    Calculator.Display_Value = '0';
     Calculator.First_Operand = null;
     Calculator.Wait_Second_Operand = false;
     Calculator.operator = null;
