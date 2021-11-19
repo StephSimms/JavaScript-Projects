@@ -1,7 +1,7 @@
 function getReceipt() {
     //This initializes our string so it can get passed from 
     //function to function, growing line by line into a full receipt
-    var text1 = "<h3>You Ordered:<h3>";
+    var text1 = "<h3>You Ordered:</h3>";
     var runningTotal = 0;
     var sizeTotal = 0;
     var sizeArray = document.getElementsByClassName("size");
@@ -23,7 +23,7 @@ function getReceipt() {
         sizeTotal = 16;
     } else if (selectedSize === "Super Duper Party Size") {
         sizeTotal = 20;
-    };
+    }
     runningTotal = sizeTotal;
     console.log(selectedSize+" = $"+sizeTotal+".00");
     console.log("size text1: "+text1);
