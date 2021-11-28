@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<script src="./Challenge_29.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <body>
+       
+    <h1 style="font-size: 10vw;">Responsive Text</h1>
+
+    <p style="font-size: 5vw;">Resize the browser window to see how the text size scales.</p>
+    <p style="font-size: 5vw;">Use the "vw" unit when sizing the text. 10vw will set the size to 10% of the viewport width.</p>
+    <p>Viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.</p>
     <p id="XML_Example"></p>
     <script>
         var XML_Parser, XML_Document;
@@ -21,7 +30,118 @@
 
     document.getElementById("XML_Example").innerHTML=
     XML_Document.getElementsByTagName("title")[0].childNodes[0].nodeValue;
-
     </script>
+
+        <script>
+        $(document).ready(function(){
+        $("button").click(function(){
+        $("#div1").fadeIn();
+        $("#div2").fadeIn("slow");
+        $("#div3").fadeIn(3000);
+        });
+    });
+        </script>
+  </head>
+  
+  
+  <p>Fade In for Challenge 29</p>
+  
+  <button>Click to fade in boxes</button><br><br>
+  
+  <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+  <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+  <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+  
+  <h2>JavaScript Validation Form</h2>
+  <form name="myForm" action="/action_page.php"
+  onsubmit="return validateForm()" method="post">
+    Name: <input type="text" name="fname">
+    <input type="submit" value="Submit">
+</form>
+
+<h3>Pop Up Form Challenge</h3>
+<p>Click the button at the bottom of this page to open the login form.</p>
+<button class="open-button"
+onclick="openForm()">Open Form</button>
+
+<div class="form-popup" id="popup">
+    <form action="/action_page.php" class="form-container">
+        <h1>Login</h1>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit" class="btn">Login</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+</div>
+
+<h1>Keyframe</h1>
+<div class="keyframe"></div>
+
+<h1>Zoom</h1>
+<p>Hover the div element to Zoom</p>
+<div class="zoom"></div>
+
+<h1>HTML links</h1>
+<p><a href="https://www.w3schools.com/">Visit W3schools.com!</a></p>
+<p><a href="https://people.com/">Visit PeopleMagazine.com!</a></p>
+
+
+<h1>Smooth Scroll</h1>
+
+<div class="main" id="section1">
+  <h2>Section 1</h2>
+  <p>Click on the link to see the "smooth" scrolling effect.</p>
+  <a href="#section2">Click Me to Smooth Scroll</a>
+  </p>
+</div>
+
+<div class="main" id="section2">
+  <h2>Section 2</h2>
+  <a href="#section1">Click Me to Smooth Scroll</a>
+</div
+
+<div id="slideshow">
+    <div>
+        <img src="SpencerAnanas.jpg">
+    </div>
+    <div>
+        <img src="Spencer.jpg">
+    </div>
+    <div>
+        Pretty cool slideshow
+    </div>
+</div>
+
+<script>
+$("#slideshow > div:gt(0)").hide();
+
+setInterval("function") {
+    $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+}, 3000);
+</script>
+    
+<br>
+<h2>Sticky Element</h2>
+<p>click the sticky <button></button>.</p>
+<div class="sticky">I will stick to the screen</div>
+<button>Default Button</button>
+<a href="#" class="button">Link Button</a>
+<button class="button">Button</button>
+<input type="button" class="button" value="Input Button">
+</br>
+
+<h1>Horizontal Rule</h1>
+<hr> <!----------Horizontal Rule Tag------------>
+<p>this is a horizonal rule</p>
 </body>
 </html>

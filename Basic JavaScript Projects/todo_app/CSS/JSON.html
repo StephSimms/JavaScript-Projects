@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Create JSON string from a JavaScript object.</h2>
+
+    <p id="demo"></p>
+
+    <script>
+    var obj = { "name":"John", "age":30, "city":"New York"};
+    var myJSON = JSON.stringify(obj);
+    document.getElementById("demo").innerHTML = myJSON;
+    </script>
+
+
+
+    <h1>JSON parse()</h1>
+
+    <p>JSON.parse() parses a string, written in JSON format, and returns a JavaScript object.</p>
+
+    <p>The value of "firstName" is:</p>
+
+    <p id="demo"></p>
+
+    <script>
+    var obj = JSON.parse('{"firstName":"John", "lastName":"Doe"}');
+
+    document.getElementById("demo").innerHTML = obj.firstName;
+    </script>
+
+
+<div id="result"></div>
+
+<script>
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+  localStorage.setItem("lastname", "Smith");
+  // Retrieve
+  document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} else {
+  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+}
+</script>
+
+
+</body>
+</html>
